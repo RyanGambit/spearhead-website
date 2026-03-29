@@ -195,12 +195,24 @@ h3 {
 .hero {
   position: relative;
   height: 718px;
-  background: linear-gradient(135deg, #1a2332 0%, #2c4a6e 40%, #4a6f8a 70%, #8b6b5a 100%);
-  background-size: cover;
+  background: #1a2332;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
 }
 
 .hero-overlay {
