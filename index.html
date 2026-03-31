@@ -132,23 +132,44 @@
       </div>
 
       <div class="spotlight-tabs">
-        <a href="#" class="tab-link tab-active">Collective Waste Solution</a>
-        <a href="#" class="tab-link">Company #2</a>
-        <a href="#" class="tab-link">Company #3</a>
+        <a href="#" class="tab-link tab-active" data-tab="0">Waste Management</a>
+        <a href="#" class="tab-link" data-tab="1">Healthcare Services</a>
+        <a href="#" class="tab-link" data-tab="2">Industrial Manufacturing</a>
       </div>
       <div class="spotlight-tab-line">
         <div class="spotlight-tab-active-line"></div>
       </div>
 
-      <div class="spotlight-content">
+      <div class="spotlight-content spotlight-card active" data-card="0">
         <div class="spotlight-text">
-          <h3>Emotional, powerful statement about transaction (both sides)</h3>
-          <p class="body-text body-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mattis, nibh. Ut mattis, nibh sit amet convallis volutpat, dolor dolor semper enim Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mattis, nibh.</p>
-          <p class="body-text body-lg">Ut mattis, nibh sit amet convallis volutpat, dolor dolor semper en</p>
+          <h3>A 20-year family business finds the right partner to grow.</h3>
+          <p class="body-text body-lg">After two decades building a regional waste services company, the founder wanted to step back but not at the cost of the culture he'd built. Spearhead connected him with an acquirer who retained the full management team and committed to regional expansion. The deal closed within 90 days.</p>
           <a href="#" class="btn btn-sm btn-outline">LEARN MORE <span class="arrow">&rarr;</span></a>
         </div>
         <div class="spotlight-image">
-          <img src="images/spotlight-image.png" alt="Deal spotlight">
+          <img src="images/spotlight-image.png" alt="Waste Management deal">
+        </div>
+      </div>
+
+      <div class="spotlight-content spotlight-card" data-card="1">
+        <div class="spotlight-text">
+          <h3>From founder-led to fully backed, on her timeline.</h3>
+          <p class="body-text body-lg">The owner of a multi-location healthcare practice had turned down two unsolicited offers that didn't feel right. Spearhead brought three competing buyers to the table, giving her the leverage to negotiate terms that included an equity rollover and a two-year transition plan.</p>
+          <a href="#" class="btn btn-sm btn-outline">LEARN MORE <span class="arrow">&rarr;</span></a>
+        </div>
+        <div class="spotlight-image">
+          <img src="images/spotlight-image.png" alt="Healthcare Services deal">
+        </div>
+      </div>
+
+      <div class="spotlight-content spotlight-card" data-card="2">
+        <div class="spotlight-text">
+          <h3>Three generations in. One deal to get right.</h3>
+          <p class="body-text body-lg">A third-generation manufacturing business needed a buyer who understood the complexity of the operation, not just the numbers. Spearhead identified a strategic acquirer already active in the space and structured a deal that protected key employees and long-standing supplier relationships.</p>
+          <a href="#" class="btn btn-sm btn-outline">LEARN MORE <span class="arrow">&rarr;</span></a>
+        </div>
+        <div class="spotlight-image">
+          <img src="images/spotlight-image.png" alt="Industrial Manufacturing deal">
         </div>
       </div>
     </div>
@@ -415,6 +436,18 @@
     });
   }).catch(() => {
     document.getElementById("map").innerHTML = '<div class="map-loading" style="color:#F04E36">Map data could not load.</div>';
+  });
+  </script>
+
+  <script>
+  document.querySelectorAll('.tab-link').forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('tab-active'));
+      document.querySelectorAll('.spotlight-card').forEach(c => c.classList.remove('active'));
+      tab.classList.add('tab-active');
+      document.querySelector(`.spotlight-card[data-card="${tab.dataset.tab}"]`).classList.add('active');
+    });
   });
   </script>
 

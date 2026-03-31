@@ -497,10 +497,14 @@ h3 {
 }
 
 .spotlight-content {
-  display: grid;
+  display: none;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: start;
+}
+
+.spotlight-card.active {
+  display: grid;
 }
 
 .spotlight-text {
