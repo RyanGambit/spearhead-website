@@ -681,6 +681,24 @@ h3 {
   font-size: 12px;
 }
 
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+  width: 100%;
+  height: 41px;
+  padding: 8px 16px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  background: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+.form-group input::placeholder {
+  color: #999;
+}
+
 .form-group textarea {
   width: 100%;
   height: 137px;
