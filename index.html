@@ -86,36 +86,40 @@
     </div>
   </section>
 
-  <!-- SERVICES OVERVIEW -->
-  <section class="services-section">
+  <!-- MAP SECTION -->
+  <section class="map-section">
     <div class="container">
-      <h2><span class="text-black">Services </span><span class="text-red">overview</span><span class="text-black"> Section</span></h2>
-      <div class="services-divider-thick"></div>
+      <h2><span class="text-black">Hundreds of deals </span><span class="text-red"><em>across North America.</em></span></h2>
 
-      <div class="service-row service-row-expanded">
-        <div class="service-info">
-          <h3>Audience 1 / Service Offering</h3>
-          <div class="service-detail">
-            <p class="body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mattis, nibh. Ut mattis, nibh sit amet convallis volutpat, dolor dolor semper enim Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mattis, nibh.</p>
-            <p class="body-text">Ut mattis, nibh sit amet convallis volutpat, dolor dolor semper en</p>
-            <a href="#" class="btn btn-sm btn-outline">LEARN MORE <span class="arrow">&rarr;</span></a>
-          </div>
+      <div class="map-legend">
+        <div class="map-legend-item">
+          <div class="map-legend-dot map-legend-loi"></div>
+          Offers extended
         </div>
-        <div class="service-image">
-          <img src="images/service-image.png" alt="Service offering">
+        <div class="map-legend-item">
+          <div class="map-legend-dot map-legend-closed"></div>
+          Closed deals
         </div>
       </div>
-      <div class="services-divider"></div>
 
-      <div class="service-row">
-        <h3>Audience 2 / Service Offering</h3>
+      <div class="map-container" id="map">
+        <div class="map-loading">Loading map...</div>
       </div>
-      <div class="services-divider"></div>
 
-      <div class="service-row">
-        <h3>Audience 3 / Service Offering</h3>
+      <div class="map-stats-row">
+        <div class="map-stat">
+          <div class="map-stat-number">400<span>+</span></div>
+          <div class="map-stat-label">OFFERS EXTENDED</div>
+        </div>
+        <div class="map-stat">
+          <div class="map-stat-number"><span>$</span>2B<span>+</span></div>
+          <div class="map-stat-label">IN TRANSACTION VALUE</div>
+        </div>
+        <div class="map-stat">
+          <div class="map-stat-number">34<span>+</span></div>
+          <div class="map-stat-label">STATES &amp; PROVINCES</div>
+        </div>
       </div>
-      <div class="services-divider"></div>
     </div>
   </section>
 
@@ -269,6 +273,152 @@
       </div>
     </div>
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+  <script>
+  const loiCities = [
+    {lat:40.7128,lng:-74.006},{lat:40.758,lng:-73.9855},{lat:40.6892,lng:-74.0445},
+    {lat:40.7282,lng:-73.7949},{lat:40.8568,lng:-74.2263},{lat:41.0534,lng:-73.5387},
+    {lat:42.3601,lng:-71.0589},{lat:42.3751,lng:-71.1056},{lat:42.2626,lng:-71.8023},
+    {lat:41.824,lng:-71.4128},{lat:41.3083,lng:-72.9279},{lat:41.7658,lng:-72.6734},
+    {lat:39.9526,lng:-75.1652},{lat:39.9849,lng:-75.2498},{lat:40.0379,lng:-76.3055},
+    {lat:40.4406,lng:-79.9959},{lat:40.5015,lng:-80.2182},{lat:40.7934,lng:-77.86},
+    {lat:42.8864,lng:-78.8784},{lat:43.0481,lng:-76.1474},{lat:42.6526,lng:-73.7562},
+    {lat:43.1566,lng:-77.6088},{lat:40.2171,lng:-74.7429},{lat:40.4774,lng:-74.2591},
+    {lat:38.9072,lng:-77.0369},{lat:38.8048,lng:-77.0469},{lat:39.2904,lng:-76.6122},
+    {lat:39.1754,lng:-76.6684},{lat:38.3498,lng:-81.6326},
+    {lat:35.2271,lng:-80.8431},{lat:35.7796,lng:-78.6382},{lat:36.0726,lng:-79.792},
+    {lat:34.0007,lng:-81.0348},{lat:34.8526,lng:-82.394},{lat:32.7765,lng:-79.9311},
+    {lat:37.5407,lng:-77.436},{lat:36.8529,lng:-75.978},{lat:37.271,lng:-79.9414},
+    {lat:33.749,lng:-84.388},{lat:33.4484,lng:-84.1461},{lat:34.2574,lng:-83.44},
+    {lat:33.9519,lng:-83.3576},{lat:32.0809,lng:-81.0912},{lat:30.3322,lng:-81.6557},
+    {lat:30.2741,lng:-81.3958},{lat:27.9506,lng:-82.4572},{lat:28.5383,lng:-81.3792},
+    {lat:26.1224,lng:-80.1373},{lat:25.7617,lng:-80.1918},{lat:26.7153,lng:-80.0534},
+    {lat:30.4383,lng:-84.2807},{lat:32.4609,lng:-84.9877},{lat:35.9606,lng:-83.9207},
+    {lat:36.1627,lng:-86.7816},{lat:36.1745,lng:-85.5016},{lat:35.0456,lng:-85.3097},
+    {lat:33.5207,lng:-86.8025},{lat:34.7304,lng:-86.5861},{lat:30.6954,lng:-88.0399},
+    {lat:32.2988,lng:-90.1848},{lat:30.4515,lng:-91.1871},
+    {lat:41.8781,lng:-87.6298},{lat:41.85,lng:-87.65},{lat:42.0334,lng:-87.8834},
+    {lat:41.525,lng:-88.0817},{lat:41.6764,lng:-86.252},{lat:40.4173,lng:-86.8786},
+    {lat:39.7684,lng:-86.1581},{lat:39.1031,lng:-84.512},{lat:39.9612,lng:-82.9988},
+    {lat:41.4993,lng:-81.6944},{lat:41.0814,lng:-81.519},{lat:42.3314,lng:-83.0458},
+    {lat:42.7325,lng:-84.5555},{lat:42.9634,lng:-85.6681},{lat:43.0389,lng:-87.9065},
+    {lat:44.9778,lng:-93.265},{lat:44.9537,lng:-93.09},{lat:44.0121,lng:-92.4802},
+    {lat:43.0731,lng:-89.4012},{lat:42.5005,lng:-89.0363},{lat:43.6106,lng:-84.7245},
+    {lat:46.7867,lng:-92.1005},{lat:47.9253,lng:-97.0329},
+    {lat:32.7767,lng:-96.797},{lat:32.9556,lng:-96.8667},{lat:32.7357,lng:-97.1081},
+    {lat:33.0198,lng:-96.6989},{lat:29.7604,lng:-95.3698},{lat:29.9511,lng:-95.3599},
+    {lat:29.5635,lng:-95.3224},{lat:29.4241,lng:-98.4936},{lat:30.2672,lng:-97.7431},
+    {lat:30.3074,lng:-97.8934},{lat:31.7619,lng:-106.485},{lat:33.4484,lng:-101.8455},
+    {lat:27.8006,lng:-97.3964},{lat:31.9973,lng:-102.0779},{lat:32.4487,lng:-99.7331},
+    {lat:30.08,lng:-94.1266},{lat:26.2034,lng:-98.23},
+    {lat:39.7392,lng:-104.9903},{lat:39.8681,lng:-104.9719},{lat:38.8339,lng:-104.8214},
+    {lat:40.5853,lng:-105.0844},{lat:40.7608,lng:-111.891},{lat:40.2338,lng:-111.6585},
+    {lat:43.615,lng:-116.2023},{lat:46.8721,lng:-113.994},{lat:45.7833,lng:-108.5007},
+    {lat:41.14,lng:-104.8202},{lat:35.0844,lng:-106.6504},{lat:35.687,lng:-105.9378},
+    {lat:33.4484,lng:-112.074},{lat:33.4152,lng:-111.8315},{lat:32.2226,lng:-110.9747},
+    {lat:36.1699,lng:-115.1398},{lat:39.5296,lng:-119.8138},{lat:47.6588,lng:-117.426},
+    {lat:47.6062,lng:-122.3321},{lat:47.2529,lng:-122.4443},{lat:48.7519,lng:-122.4787},
+    {lat:47.0379,lng:-122.9007},{lat:45.5155,lng:-122.6789},{lat:45.52,lng:-122.68},
+    {lat:44.0521,lng:-123.0868},{lat:37.7749,lng:-122.4194},{lat:37.8716,lng:-122.2727},
+    {lat:37.3382,lng:-121.8863},{lat:37.5485,lng:-122.0574},{lat:36.9741,lng:-122.0308},
+    {lat:34.0522,lng:-118.2437},{lat:34.1478,lng:-118.1445},{lat:33.7455,lng:-117.8677},
+    {lat:33.9425,lng:-118.4081},{lat:32.7157,lng:-117.1611},{lat:33.8366,lng:-117.9143},
+    {lat:38.5816,lng:-121.4944},{lat:36.7378,lng:-119.7871},{lat:38.4405,lng:-122.7141},
+    {lat:43.6532,lng:-79.3832},{lat:43.7001,lng:-79.4163},{lat:43.2557,lng:-79.8711},
+    {lat:43.4643,lng:-80.5204},{lat:44.2312,lng:-76.486},{lat:45.4215,lng:-75.6972},
+    {lat:45.5017,lng:-73.5673},{lat:45.5088,lng:-73.5878},{lat:46.8139,lng:-71.208},
+    {lat:51.0447,lng:-114.0719},{lat:53.5461,lng:-113.4938},{lat:49.2827,lng:-123.1207},
+    {lat:49.8954,lng:-97.1385},{lat:50.4452,lng:-104.6189},{lat:44.6488,lng:-63.5752},
+    {lat:41.2565,lng:-95.9345},{lat:39.0997,lng:-94.5786},{lat:38.627,lng:-90.1994},
+    {lat:38.7496,lng:-90.3745},{lat:37.6872,lng:-97.3301},{lat:36.154,lng:-95.9928},
+    {lat:35.4676,lng:-97.5164},{lat:35.2226,lng:-97.4395},{lat:46.8772,lng:-96.7898},
+    {lat:44.3106,lng:-96.798},{lat:43.546,lng:-96.7313},{lat:40.8136,lng:-96.7026},
+    {lat:29.9511,lng:-90.0715},{lat:30.2241,lng:-92.0198},{lat:30.396,lng:-89.0928},
+    {lat:34.7465,lng:-92.2896},{lat:35.1495,lng:-90.049},{lat:32.3547,lng:-86.2666},
+    {lat:42.0411,lng:-93.798},{lat:41.5868,lng:-93.625},{lat:39.0119,lng:-98.4842},
+    {lat:38.0608,lng:-97.9298},{lat:44.3683,lng:-100.351},{lat:42.8746,lng:-112.4554},
+    {lat:40.1164,lng:-88.2434},{lat:38.2527,lng:-85.7585},{lat:37.9643,lng:-87.5711},
+    {lat:34.0853,lng:-83.8226},{lat:41.1579,lng:-73.254},{lat:42.1015,lng:-72.5898},
+    {lat:39.7391,lng:-121.8947},{lat:46.2304,lng:-119.1819},{lat:38.0406,lng:-84.5037},
+    {lat:33.2098,lng:-87.5692},{lat:47.5105,lng:-111.2846},{lat:44.0805,lng:-103.231},
+    {lat:36.8508,lng:-76.2859},{lat:28.0222,lng:-82.5219},{lat:27.3364,lng:-82.5307},
+    {lat:42.2711,lng:-83.7263},{lat:41.6528,lng:-83.5379},{lat:43.0125,lng:-83.6875},
+    {lat:36.3134,lng:-82.3535},{lat:33.0801,lng:-83.2321},{lat:31.2112,lng:-82.354},
+    {lat:30.3322,lng:-82.1067},{lat:34.2257,lng:-77.9447},{lat:35.5951,lng:-82.5515},
+    {lat:37.2296,lng:-80.4139},{lat:48.233,lng:-101.2963},{lat:44.9399,lng:-97.1148},
+    {lat:42.9849,lng:-81.2453},{lat:43.1594,lng:-79.2469},{lat:45.3168,lng:-73.8659},
+    {lat:46.0878,lng:-64.7782},{lat:52.2681,lng:-113.8112},{lat:50.0272,lng:-110.672},
+    {lat:51.2538,lng:-85.3232},{lat:48.4284,lng:-89.2278},{lat:49.8844,lng:-119.496},
+  ];
+
+  const closedDeals = [
+    {lat:40.7128,lng:-74.006},{lat:42.3601,lng:-71.0589},{lat:39.9526,lng:-75.1652},
+    {lat:38.9072,lng:-77.0369},{lat:33.749,lng:-84.388},{lat:25.7617,lng:-80.1918},
+    {lat:35.2271,lng:-80.8431},{lat:30.3322,lng:-81.6557},{lat:36.1627,lng:-86.7816},
+    {lat:33.5207,lng:-86.8025},{lat:41.8781,lng:-87.6298},{lat:42.3314,lng:-83.0458},
+    {lat:39.7684,lng:-86.1581},{lat:39.1031,lng:-84.512},{lat:41.4993,lng:-81.6944},
+    {lat:44.9778,lng:-93.265},{lat:43.0389,lng:-87.9065},{lat:32.7767,lng:-96.797},
+    {lat:29.7604,lng:-95.3698},{lat:29.4241,lng:-98.4936},{lat:30.2672,lng:-97.7431},
+    {lat:35.4676,lng:-97.5164},{lat:39.0997,lng:-94.5786},{lat:38.627,lng:-90.1994},
+    {lat:41.2565,lng:-95.9345},{lat:39.7392,lng:-104.9903},{lat:40.7608,lng:-111.891},
+    {lat:33.4484,lng:-112.074},{lat:36.1699,lng:-115.1398},{lat:47.6062,lng:-122.3321},
+    {lat:45.5155,lng:-122.6789},{lat:37.7749,lng:-122.4194},{lat:34.0522,lng:-118.2437},
+    {lat:32.7157,lng:-117.1611},{lat:43.6532,lng:-79.3832},{lat:45.5017,lng:-73.5673},
+    {lat:45.4215,lng:-75.6972},{lat:51.0447,lng:-114.0719},{lat:49.2827,lng:-123.1207},
+    {lat:29.9511,lng:-90.0715},{lat:40.4406,lng:-79.9959},{lat:28.5383,lng:-81.3792},
+    {lat:27.9506,lng:-82.4572},
+  ];
+
+  const width = 960, height = 420;
+  const svg = d3.select("#map").html("").append("svg")
+    .attr("viewBox", `0 0 ${width} ${height}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
+
+  const projection = d3.geoAlbers()
+    .center([0, 44]).rotate([98, 0]).parallels([20, 55])
+    .scale(1050).translate([width / 2, height / 2]);
+
+  const path = d3.geoPath().projection(projection);
+
+  Promise.all([
+    d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json"),
+    d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
+  ]).then(([us, world]) => {
+    const canada = topojson.feature(world, world.objects.countries).features.find(d => d.id === "124");
+    if (canada) svg.append("path").datum(canada).attr("class","canada-path").attr("d",path);
+
+    svg.append("g").selectAll("path")
+      .data(topojson.feature(us, us.objects.states).features)
+      .enter().append("path").attr("class","state-path").attr("d",path);
+
+    svg.append("path")
+      .datum(topojson.mesh(us, us.objects.states, (a,b) => a !== b))
+      .attr("fill","none").attr("stroke","#DCDCDC").attr("stroke-width",0.5).attr("d",path);
+
+    svg.append("path")
+      .datum(topojson.mesh(us, us.objects.nation))
+      .attr("class","country-border").attr("d",path);
+
+    const loiG = svg.append("g");
+    loiCities.forEach(c => {
+      const p = projection([c.lng, c.lat]);
+      if (p) loiG.append("circle").attr("cx",p[0]).attr("cy",p[1]).attr("r",3).attr("fill","#F04E36").attr("opacity",0.2);
+    });
+
+    const closedG = svg.append("g");
+    closedDeals.forEach((c,i) => {
+      const p = projection([c.lng, c.lat]);
+      if (p) {
+        closedG.append("circle").attr("cx",p[0]).attr("cy",p[1]).attr("r",9).attr("fill","#F04E36").attr("opacity",0.08);
+        closedG.append("circle").attr("class","dot-closed").attr("cx",p[0]).attr("cy",p[1]).attr("r",5).attr("fill","#F04E36").attr("opacity",0.95).style("animation-delay",`${(i*0.15)%3}s`);
+      }
+    });
+  }).catch(() => {
+    document.getElementById("map").innerHTML = '<div class="map-loading" style="color:#F04E36">Map data could not load.</div>';
+  });
+  </script>
 
 </body>
 </html>
