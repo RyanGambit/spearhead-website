@@ -232,13 +232,13 @@ h3 {
 
 .hero-content h1 {
   font-family: 'DM Serif Display', 'Georgia', serif;
-  font-weight: 600;
-  font-size: 80px;
-  line-height: 1.1;
+  font-weight: 400;
+  font-size: 52px;
+  line-height: 1.15;
   color: #fff;
-  letter-spacing: -1.6px;
-  margin-bottom: 40px;
-  max-width: 842px;
+  letter-spacing: -0.5px;
+  margin-bottom: 36px;
+  max-width: 680px;
 }
 
 /* ===== STRATEGIC SECTION ===== */
@@ -726,7 +726,7 @@ h3 {
 
 @media (max-width: 1024px) {
   .hero-content h1 {
-    font-size: 56px;
+    font-size: 42px;
   }
 
   .strategic-grid,
@@ -779,7 +779,7 @@ h3 {
   }
 
   .hero-content h1 {
-    font-size: 40px;
+    font-size: 32px;
   }
 
   .team-right {
