@@ -241,6 +241,32 @@ h3 {
   max-width: 680px;
 }
 
+/* ===== PE FIRMS BANNER ===== */
+.pe-banner {
+  display: block;
+  text-align: center;
+  padding: 14px 24px;
+  background: #1a2332;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+  margin: 0 70px;
+}
+
+.pe-banner:hover {
+  background: #243044;
+  color: #fff;
+}
+
+.pe-banner .arrow {
+  margin-left: 6px;
+  font-size: 13px;
+}
+
 /* ===== STRATEGIC SECTION ===== */
 .strategic-section {
   padding: 80px 0 60px;
