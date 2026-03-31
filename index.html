@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spearhead - Build the Future You Envision</title>
+  <title>Spearhead - You Built the Business. Now Explore Your Options.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -14,16 +14,16 @@
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="nav-left">
-      <a href="#" class="nav-link">WHAT WE DO</a>
-      <a href="#" class="nav-link">ABOUT US</a>
-      <a href="#" class="nav-link">FOR PE FIRMS</a>
+      <a href="#what-we-do" class="nav-link">WHAT WE DO</a>
+      <a href="#team" class="nav-link">ABOUT US</a>
+      <a href="#pe-firms" class="nav-link">FOR PE FIRMS</a>
     </div>
     <div class="nav-logo">
       <img src="images/logo.png" alt="Spearhead Logo">
     </div>
     <div class="nav-right">
       <a href="#" class="btn btn-sm btn-fill">ASK SPEARHEAD <span class="arrow">&rarr;</span></a>
-      <a href="#" class="btn btn-sm btn-outline-nav">CONTACT US <span class="arrow">&rarr;</span></a>
+      <a href="#contact" class="btn btn-sm btn-outline-nav">CONTACT US <span class="arrow">&rarr;</span></a>
     </div>
   </nav>
 
@@ -40,12 +40,12 @@
   </section>
 
   <!-- PE FIRMS BANNER -->
-  <a href="#" class="pe-banner">
+  <a id="pe-firms" href="#" class="pe-banner">
     Looking to source deals? See how we work with PE firms and strategic buyers <span class="arrow">&rarr;</span>
   </a>
 
   <!-- STRATEGIC DEALS SECTION -->
-  <section class="strategic-section">
+  <section id="what-we-do" class="strategic-section">
     <div class="container">
       <div class="strategic-grid">
         <div class="strategic-left">
@@ -58,11 +58,13 @@
             <p class="stat-desc">We know what acquirers are looking for and connect you with the ones that fit.</p>
             <a href="#" class="btn btn-sm btn-outline">LEARN MORE <span class="arrow">&rarr;</span></a>
           </div>
+          <div class="stat-divider"></div>
           <div class="stat-item">
             <h3>Options, not ultimatums.</h3>
             <p class="stat-desc">Full sale, partial exit, or retain equity. We help you find a deal structure that works for your life.</p>
             <a href="#" class="btn btn-sm btn-outline">LEARN MORE <span class="arrow">&rarr;</span></a>
           </div>
+          <div class="stat-divider"></div>
           <div class="stat-item">
             <h3>Built on real relationships.</h3>
             <p class="stat-desc">Our network spans hundreds of PE firms and strategic buyers across North America.</p>
@@ -175,15 +177,8 @@
     </div>
   </section>
 
-  <!-- CHAT WITH AI -->
-  <section class="chat-section">
-    <div class="container">
-      <img src="images/chat-ai.png" alt="Chat with our AI" class="chat-image">
-    </div>
-  </section>
-
   <!-- MEET OUR TEAM -->
-  <section class="team-section">
+  <section id="team" class="team-section">
     <div class="container">
       <div class="team-grid">
         <div class="team-left">
@@ -202,13 +197,23 @@
             <p class="member-name">Moritz Christ</p>
             <p class="member-role">Managing Director</p>
           </div>
+          <div class="team-member">
+            <div class="team-placeholder"></div>
+            <p class="member-name">Coming Soon</p>
+            <p class="member-role">Director</p>
+          </div>
+          <div class="team-member">
+            <div class="team-placeholder"></div>
+            <p class="member-name">Coming Soon</p>
+            <p class="member-role">Vice President</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT FORM -->
-  <section class="contact-section">
+  <section id="contact" class="contact-section">
     <div class="container">
       <div class="contact-grid">
         <div class="contact-left">
@@ -237,7 +242,7 @@
               <label>Message</label>
               <textarea placeholder="Tell us a bit about your situation..."></textarea>
             </div>
-            <button type="submit" class="btn btn-lg btn-fill">SUBMIT <span class="arrow">&rarr;</span></button>
+            <button type="submit" class="btn btn-lg btn-fill btn-submit-full">SUBMIT <span class="arrow">&rarr;</span></button>
           </form>
         </div>
       </div>
@@ -254,9 +259,10 @@
         <div class="footer-col">
           <p class="footer-label">QUICK LINKS</p>
           <a href="#">Home</a>
-          <a href="#">About Us</a>
-          <a href="#">Services</a>
-          <a href="#">Contact</a>
+          <a href="#what-we-do">What We Do</a>
+          <a href="#team">About Us</a>
+          <a href="#pe-firms">For PE Firms</a>
+          <a href="#contact">Contact</a>
         </div>
         <div class="footer-col">
           <p class="footer-label">CONTACT</p>
@@ -420,6 +426,18 @@
   </script>
 
   <script>
+  function updateTabLine() {
+    const activeTab = document.querySelector('.tab-link.tab-active');
+    const line = document.querySelector('.spotlight-tab-active-line');
+    const tabsContainer = document.querySelector('.spotlight-tabs');
+    if (activeTab && line && tabsContainer) {
+      const tabRect = activeTab.getBoundingClientRect();
+      const containerRect = tabsContainer.getBoundingClientRect();
+      line.style.setProperty('left', (tabRect.left - containerRect.left) + 'px', 'important');
+      line.style.setProperty('width', tabRect.width + 'px', 'important');
+    }
+  }
+
   document.querySelectorAll('.tab-link').forEach(tab => {
     tab.addEventListener('click', (e) => {
       e.preventDefault();
@@ -427,8 +445,12 @@
       document.querySelectorAll('.spotlight-card').forEach(c => c.classList.remove('active'));
       tab.classList.add('tab-active');
       document.querySelector(`.spotlight-card[data-card="${tab.dataset.tab}"]`).classList.add('active');
+      updateTabLine();
     });
   });
+
+  updateTabLine();
+  window.addEventListener('resize', updateTabLine);
   </script>
 
 </body>
