@@ -534,7 +534,7 @@ h3 {
 
 /* ===== TEAM SECTION ===== */
 .team-section {
-  background: #fafafa;
+  background: #fff;
   padding: 100px 0;
 }
 
@@ -607,6 +607,7 @@ h3 {
 /* ===== CONTACT SECTION ===== */
 .contact-section {
   padding: 104px 0;
+  background: #fafafa;
 }
 
 .contact-grid {
