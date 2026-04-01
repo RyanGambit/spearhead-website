@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KRYPTO - Discover and Collect Rare NFTs</title>
+<meta name="description" content="The most secure marketplace for buying and selling unique crypto assets.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background: #0b0b1a;
+    --color-foreground: #ffffff;
+    --color-primary: #7c3aed;
+    --color-primary-light: #a78bfa;
+    --color-accent: #34d399;
+    --color-accent-dark: #059669;
+    --color-surface: rgba(255, 255, 255, 0.05);
+    --color-surface-hover: rgba(255, 255, 255, 0.1);
+    --color-muted: #94a3b8;
+  }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    background: linear-gradient(180deg, #0b0b1a 0%, #1a1145 30%, #2d1b69 60%, #1a1145 100%);
+    color: var(--color-foreground);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  a { text-decoration: none; color: inherit; }
+  button { cursor: pointer; border: none; background: none; font-family: inherit; }
+  input { font-family: inherit; }
+  ul { list-style: none; }
+
+  /* ===== NAVBAR ===== */
+  .navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 2rem; background: transparent; backdrop-filter: blur(4px);
+  }
+  .navbar-brand { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.1em; color: white; }
+  .navbar-links { display: none; align-items: center; gap: 2rem; }
+  .navbar-link { font-size: 0.875rem; color: var(--color-muted); transition: color 0.2s; }
+  .navbar-link:hover { color: white; }
+  .navbar-link--cta { color: white; font-weight: 500; }
+  .navbar-link--cta:hover { color: var(--color-accent); }
+  @media (min-width: 768px) { .navbar-links { display: flex; } }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative; min-height: 100vh; display: flex; align-items: center;
+    padding: 6rem 2rem 4rem; overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 80rem; margin: 0 auto; width: 100%;
+    display: grid; gap: 3rem; align-items: center;
+  }
+  @media (min-width: 768px) { .hero-inner { grid-template-columns: 1fr 1fr; } }
+  .hero-title {
+    font-size: 3rem; font-weight: 700; line-height: 1.1;
+    letter-spacing: -0.02em; text-transform: uppercase; color: white;
+  }
+  @media (min-width: 768px) { .hero-title { font-size: 3.75rem; } }
+  @media (min-width: 1024px) { .hero-title { font-size: 4.5rem; } }
+  .hero-desc { color: var(--color-muted); font-size: 1rem; max-width: 28rem; margin-top: 1.5rem; }
+  .hero-buttons { display: flex; gap: 1rem; margin-top: 1.75rem; }
+  .btn-primary {
+    padding: 0.75rem 2rem; background: var(--color-accent); color: black;
+    font-weight: 600; border-radius: 9999px; font-size: 0.875rem;
+    text-transform: uppercase; letter-spacing: 0.05em; transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-outline {
+    padding: 0.75rem 2rem; border: 1px solid rgba(255,255,255,0.3); color: white;
+    font-weight: 600; border-radius: 9999px; font-size: 0.875rem;
+    text-transform: uppercase; letter-spacing: 0.05em; transition: background 0.2s;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+  /* Hero illustration */
+  .hero-illustration { position: relative; display: flex; align-items: center; justify-content: center; }
+  .hero-illust-box { width: 20rem; height: 20rem; position: relative; }
+  @media (min-width: 768px) { .hero-illust-box { width: 24rem; height: 24rem; } }
+  .hero-card-1 {
+    position: absolute; top: 1rem; right: 1rem; width: 14rem; height: 10rem;
+    border-radius: 1rem; background: linear-gradient(135deg, rgba(124,58,237,0.4), rgba(167,139,250,0.2));
+    backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-card-1-icon {
+    width: 3rem; height: 3rem; margin: 0 auto 0.5rem; border-radius: 0.5rem;
+    background: rgba(52,211,153,0.2); display: flex; align-items: center; justify-content: center;
+  }
+  .hero-card-1-label { color: rgba(255,255,255,0.7); font-size: 0.75rem; }
+  .hero-card-2 {
+    position: absolute; bottom: 2rem; left: 0; width: 12rem; height: 8rem;
+    border-radius: 1rem; background: linear-gradient(135deg, rgba(88,28,135,0.6), rgba(126,34,206,0.3));
+    backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-card-2-inner { width: 100%; padding: 0 1rem; }
+  .hero-bar { height: 0.5rem; border-radius: 9999px; margin-bottom: 0.5rem; }
+  .hero-bar--1 { background: rgba(52,211,153,0.4); width: 75%; }
+  .hero-bar--2 { background: rgba(167,139,250,0.4); width: 100%; }
+  .hero-bar--3 { background: rgba(250,204,21,0.4); width: 50%; }
+  .hero-orb {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 8rem; height: 8rem; border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), #c084fc);
+    opacity: 0.4; filter: blur(32px);
+  }
+  .hero-orb-small {
+    position: absolute; top: 3rem; left: 3rem; width: 4rem; height: 4rem;
+    border-radius: 50%; background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+    opacity: 0.6; filter: blur(4px);
+  }
+
+  /* ===== FEATURED ON ===== */
+  .featured { padding: 3rem 2rem; }
+  .featured-inner { max-width: 64rem; margin: 0 auto; }
+  .featured-label {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--color-muted); margin-bottom: 2rem;
+  }
+  .featured-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 3rem; }
+  @media (min-width: 768px) { .featured-logos { gap: 4rem; } }
+  .featured-logo {
+    color: rgba(255,255,255,0.4); font-size: 1.125rem; font-weight: 600;
+    letter-spacing: 0.05em; transition: color 0.2s;
+  }
+  @media (min-width: 768px) { .featured-logo { font-size: 1.25rem; } }
+  .featured-logo:hover { color: rgba(255,255,255,0.6); }
+
+  /* ===== ANALYTICS SECTIONS ===== */
+  .analytics-section { padding: 5rem 2rem; }
+  .analytics-inner {
+    max-width: 72rem; margin: 0 auto; display: grid; gap: 4rem; align-items: center;
+  }
+  @media (min-width: 768px) { .analytics-inner { grid-template-columns: 1fr 1fr; } }
+  .analytics-label {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted);
+  }
+  .analytics-title {
+    font-size: 2.25rem; font-weight: 700; line-height: 1.1;
+    text-transform: uppercase; letter-spacing: -0.02em; color: white; margin-top: 0.5rem;
+  }
+  @media (min-width: 768px) { .analytics-title { font-size: 3rem; } }
+  .analytics-desc { color: var(--color-muted); font-size: 1rem; max-width: 28rem; margin-top: 1.5rem; }
+  .btn-accent-outline {
+    display: inline-block; margin-top: 1.5rem;
+    padding: 0.75rem 2rem; border: 1px solid var(--color-accent); color: var(--color-accent);
+    font-weight: 600; border-radius: 9999px; font-size: 0.875rem;
+    text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.2s;
+  }
+  .btn-accent-outline:hover { background: var(--color-accent); color: black; }
+
+  /* Dashboard illustration */
+  .dash-card {
+    border-radius: 1rem; background: linear-gradient(135deg, rgba(88,28,135,0.4), rgba(88,28,135,0.2));
+    border: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; backdrop-filter: blur(8px);
+  }
+  .dash-icons { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+  .dash-icon {
+    width: 2.5rem; height: 2.5rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .dash-icon--red { background: rgba(248,113,113,0.2); }
+  .dash-icon--red-dot { width: 1.25rem; height: 1.25rem; border-radius: 50%; background: #f87171; }
+  .dash-icon--green { background: rgba(52,211,153,0.2); }
+  .dash-bars { display: flex; flex-direction: column; gap: 0.75rem; }
+  .dash-bar { height: 0.75rem; border-radius: 9999px; }
+  .dash-bar--blue { background: rgba(59,130,246,0.3); width: 100%; }
+  .dash-bar--green { background: rgba(52,211,153,0.3); width: 80%; }
+  .dash-bar--yellow { background: rgba(250,204,21,0.3); width: 60%; }
+
+  /* Phone illustration */
+  .phone-wrap { display: flex; align-items: center; justify-content: center; }
+  .phone-frame { position: relative; width: 16rem; height: 20rem; }
+  .phone-body {
+    position: absolute; inset: 0; border-radius: 1.5rem;
+    background: linear-gradient(135deg, rgba(52,211,153,0.2), rgba(5,150,105,0.1));
+    border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(8px);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .phone-icon-box {
+    width: 4rem; height: 4rem; margin: 0 auto 1rem; border-radius: 1rem;
+    background: rgba(52,211,153,0.2); display: flex; align-items: center; justify-content: center;
+  }
+  .phone-label { color: rgba(255,255,255,0.6); font-size: 0.875rem; }
+  .phone-cube {
+    position: absolute; bottom: -1rem; left: -1rem; width: 3rem; height: 3rem;
+    border-radius: 0.5rem; background: linear-gradient(135deg, rgba(250,204,21,0.4), rgba(251,146,60,0.2));
+    border: 1px solid rgba(255,255,255,0.1); transform: rotate(12deg);
+  }
+  .phone-badge {
+    position: absolute; top: -0.5rem; right: -0.5rem; width: 2.5rem; height: 2.5rem;
+    border-radius: 50%; background: rgba(52,211,153,0.3);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials { padding: 5rem 2rem; }
+  .testimonials-inner { max-width: 72rem; margin: 0 auto; text-align: center; }
+  .testimonials-label {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--color-accent); margin-bottom: 1rem;
+  }
+  .testimonials-title {
+    font-size: 2.25rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: -0.02em; color: white; margin-bottom: 4rem;
+  }
+  @media (min-width: 768px) { .testimonials-title { font-size: 3rem; } }
+  .testimonials-grid { display: grid; gap: 2rem; }
+  @media (min-width: 768px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); } }
+  .testimonial-card {
+    border-radius: 1rem; background: var(--color-surface);
+    border: 1px solid rgba(255,255,255,0.1); padding: 2rem; text-align: center;
+    transition: background 0.2s;
+  }
+  .testimonial-card:hover { background: var(--color-surface-hover); }
+  .testimonial-avatar {
+    width: 4rem; height: 4rem; margin: 0 auto 1rem; border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .testimonial-name { color: white; font-weight: 600; font-size: 1.125rem; margin-bottom: 0.75rem; }
+  .testimonial-text { color: var(--color-muted); font-size: 0.875rem; line-height: 1.6; }
+
+  /* ===== CTA ===== */
+  .cta-section { padding: 5rem 2rem; }
+  .cta-box {
+    max-width: 56rem; margin: 0 auto; text-align: center;
+    border-radius: 1.5rem; background: linear-gradient(135deg, rgba(88,28,135,0.6), rgba(49,46,129,0.4));
+    border: 1px solid rgba(255,255,255,0.1); padding: 4rem 2rem; backdrop-filter: blur(8px);
+  }
+  .cta-label {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--color-muted); margin-bottom: 1rem;
+  }
+  .cta-title {
+    font-size: 2.25rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: -0.02em; color: white; margin-bottom: 2rem;
+  }
+  @media (min-width: 768px) { .cta-title { font-size: 3rem; } }
+  .btn-cta {
+    padding: 1rem 2.5rem; background: var(--color-accent); color: black;
+    font-weight: 600; border-radius: 9999px; font-size: 0.875rem;
+    text-transform: uppercase; letter-spacing: 0.05em; transition: opacity 0.2s;
+  }
+  .btn-cta:hover { opacity: 0.9; }
+
+  /* ===== FOOTER ===== */
+  .footer { padding: 4rem 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+  .footer-inner { max-width: 72rem; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(5, 1fr); } }
+  .footer-brand { grid-column: span 2; }
+  @media (min-width: 768px) { .footer-brand { grid-column: span 1; } }
+  .footer-brand-name { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.1em; color: white; }
+  .footer-heading { color: white; font-weight: 600; font-size: 0.875rem; margin-bottom: 1rem; }
+  .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-link { color: var(--color-muted); font-size: 0.75rem; transition: color 0.2s; }
+  .footer-link:hover { color: white; }
+  .newsletter-form { display: flex; gap: 0.5rem; }
+  .newsletter-input {
+    flex: 1; min-width: 0; padding: 0.5rem 1rem; font-size: 0.75rem;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 0.5rem; color: white; outline: none;
+  }
+  .newsletter-input::placeholder { color: var(--color-muted); }
+  .newsletter-input:focus { border-color: var(--color-accent); }
+  .newsletter-btn {
+    padding: 0.5rem 1rem; background: var(--color-accent); color: black;
+    font-size: 0.75rem; font-weight: 600; border-radius: 0.5rem;
+    white-space: nowrap; transition: opacity 0.2s;
+  }
+  .newsletter-btn:hover { opacity: 0.9; }
+
+  /* SVG icon helper */
+  .icon { display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="#" class="navbar-brand">KRYPTO</a>
+  <div class="navbar-links">
+    <a href="#about" class="navbar-link">about</a>
+    <a href="#pricing" class="navbar-link">pricing</a>
+    <a href="#contact" class="navbar-link">contact</a>
+    <a href="#buy" class="navbar-link navbar-link--cta">buy nfts</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1 class="hero-title">Discover and<br>Collect Rare<br>NFTs</h1>
+      <p class="hero-desc">The most secure marketplace for buying and selling unique crypto assets.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary">Buy NFTs</button>
+        <button class="btn-outline">Sell NFTs</button>
+      </div>
+    </div>
+    <div class="hero-illustration">
+      <div class="hero-illust-box">
+        <div class="hero-card-1">
+          <div style="text-align:center">
+            <div class="hero-card-1-icon">
+              <svg class="icon" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#34d399"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <p class="hero-card-1-label">Analytics</p>
+          </div>
+        </div>
+        <div class="hero-card-2">
+          <div class="hero-card-2-inner">
+            <div class="hero-bar hero-bar--1"></div>
+            <div class="hero-bar hero-bar--2"></div>
+            <div class="hero-bar hero-bar--3"></div>
+          </div>
+        </div>
+        <div class="hero-orb"></div>
+        <div class="hero-orb-small"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED ON -->
+<section class="featured">
+  <div class="featured-inner">
+    <p class="featured-label">Featured on</p>
+    <div class="featured-logos">
+      <span class="featured-logo">TechCrunch</span>
+      <span class="featured-logo">PROTOCOL</span>
+      <span class="featured-logo">Pltr</span>
+      <span class="featured-logo">Forbes</span>
+    </div>
+  </div>
+</section>
+
+<!-- ANALYTICS SECTION 1 -->
+<section id="about" class="analytics-section">
+  <div class="analytics-inner">
+    <div>
+      <div class="dash-card">
+        <div class="dash-icons">
+          <div class="dash-icon dash-icon--red"><div class="dash-icon--red-dot"></div></div>
+          <div class="dash-icon dash-icon--green">
+            <svg class="icon" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#34d399"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          </div>
+        </div>
+        <div class="dash-bars">
+          <div class="dash-bar dash-bar--blue"></div>
+          <div class="dash-bar dash-bar--green"></div>
+          <div class="dash-bar dash-bar--yellow"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="analytics-label">Analytics</p>
+      <h2 class="analytics-title">Built-in Analytics<br>to Track Your NFTs</h2>
+      <p class="analytics-desc">Use our built-in analytics dashboard to pull valuable insights and monitor the value of your Krypto portfolio over time.</p>
+      <button class="btn-accent-outline">View Our Pricing</button>
+    </div>
+  </div>
+</section>
+
+<!-- ANALYTICS SECTION 2 -->
+<section id="pricing" class="analytics-section">
+  <div class="analytics-inner">
+    <div>
+      <p class="analytics-label">Analytics</p>
+      <h2 class="analytics-title">Built-in Analytics<br>to Track Your NFTs</h2>
+      <p class="analytics-desc">Use our built-in analytics dashboard to pull valuable insights and monitor the value of your Krypto portfolio over time.</p>
+      <button class="btn-accent-outline">View Our Pricing</button>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone-frame">
+        <div class="phone-body">
+          <div style="text-align:center">
+            <div class="phone-icon-box">
+              <svg class="icon" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="#34d399"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <p class="phone-label">Verified</p>
+          </div>
+        </div>
+        <div class="phone-cube"></div>
+        <div class="phone-badge">
+          <svg class="icon" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#34d399"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <p class="testimonials-label">Testimonials</p>
+    <h2 class="testimonials-title">Read What Others<br>Have to Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-avatar">
+          <svg width="32" height="32" fill="rgba(255,255,255,0.8)" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        </div>
+        <h3 class="testimonial-name">Olivia Colde</h3>
+        <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies pharetra vulputate. Pellentesque in mi massa, eu lobortis lorem.</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-avatar">
+          <svg width="32" height="32" fill="rgba(255,255,255,0.8)" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        </div>
+        <h3 class="testimonial-name">Olivia Colde</h3>
+        <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies pharetra vulputate. Pellentesque in mi massa, eu lobortis lorem.</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-avatar">
+          <svg width="32" height="32" fill="rgba(255,255,255,0.8)" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        </div>
+        <h3 class="testimonial-name">Olivia Colde</h3>
+        <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies pharetra vulputate. Pellentesque in mi massa, eu lobortis lorem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-box">
+    <p class="cta-label">Are you ready?</p>
+    <h2 class="cta-title">Be a Part of the<br>Next Big Thing</h2>
+    <button class="btn-cta">Get Started</button>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="contact" class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-brand-name">KRYPTO</span>
+      </div>
+      <div>
+        <h4 class="footer-heading">Krypto</h4>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Home</a>
+          <a href="#" class="footer-link">About</a>
+          <a href="#" class="footer-link">Buy NFTs</a>
+          <a href="#" class="footer-link">Sell NFTs</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-heading">Market</h4>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Browse NFTs</a>
+          <a href="#" class="footer-link">Buy NFTs</a>
+          <a href="#" class="footer-link">Sell NFTs</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-heading">Contact</h4>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Email</a>
+          <a href="#" class="footer-link">LinkedIn</a>
+          <a href="#" class="footer-link">Instagram</a>
+          <a href="#" class="footer-link">Twitter</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-heading">Join our newsletter</h4>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Email Address" class="newsletter-input">
+          <button class="newsletter-btn">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
