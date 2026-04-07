@@ -147,7 +147,10 @@ h3 em {
 
 /* ===== NAVBAR (DARK) ===== */
 .navbar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -212,6 +215,7 @@ h3 em {
 .pe-hero {
   background: #1c1c1c;
   padding: 0;
+  padding-top: 100px;
 }
 
 .pe-hero-inner {
