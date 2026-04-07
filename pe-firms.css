@@ -272,48 +272,6 @@ h3 em {
   line-height: 1.5;
 }
 
-/* ===== PROBLEM / SOLUTION ===== */
-.pe-problems {
-  padding: 80px 0;
-}
-
-.pe-problems-grid {
-  display: grid;
-  gap: 24px;
-}
-
-.pe-problem-row {
-  display: grid;
-  grid-template-columns: 1fr 40px 1.6fr;
-  gap: 0;
-  align-items: center;
-}
-
-.pe-problem-box {
-  padding: 24px 28px;
-  background: #F04E36;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-.pe-problem-arrow {
-  text-align: center;
-  color: #ddd;
-  font-size: 20px;
-}
-
-.pe-solution-box {
-  padding: 24px 28px;
-  border: 1.5px dashed #F04E36;
-  border-radius: 4px;
-  font-size: 14px;
-  color: #555;
-  line-height: 1.7;
-}
-
 /* ===== THIS IS SPEARHEAD ===== */
 .pe-about {
   padding: 80px 0;
@@ -332,8 +290,11 @@ h3 em {
   border-radius: 4px;
 }
 
-.pe-about-card-full {
-  grid-column: span 2;
+.pe-about-icon {
+  width: 36px;
+  height: 36px;
+  color: #F04E36;
+  margin-bottom: 16px;
 }
 
 .pe-about-label {
@@ -351,49 +312,6 @@ h3 em {
   line-height: 1.7;
 }
 
-/* ===== DIFFERENTIATORS ===== */
-.pe-diff {
-  padding: 80px 0;
-}
-
-.pe-diff-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-}
-
-.pe-diff-card {
-  padding: 36px 32px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  transition: border-color 0.2s;
-}
-
-.pe-diff-card:hover {
-  border-color: #1a1a1a;
-}
-
-.pe-diff-icon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 20px;
-  color: #F04E36;
-}
-
-.pe-diff-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 10px;
-}
-
-.pe-diff-desc {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.7;
-}
-
 /* ===== CDaaS PROCESS ===== */
 .pe-process {
   padding: 80px 0;
@@ -402,6 +320,27 @@ h3 em {
 
 .pe-process h2 {
   color: #fff;
+}
+
+.pe-process-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+.pe-process-image {
+  width: 100%;
+  height: 280px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pe-process-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .pe-process-grid {
@@ -488,78 +427,6 @@ h3 em {
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* ===== GLOBAL CAPABILITIES ===== */
-.pe-stats {
-  padding: 80px 0;
-}
-
-.pe-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.pe-stat-card {
-  padding: 28px 24px;
-  border-top: 2px solid #F04E36;
-  text-align: center;
-}
-
-.pe-stat-number {
-  font-family: 'DM Serif Display', 'Georgia', serif;
-  font-size: 36px;
-  font-weight: 400;
-  color: #1a1a1a;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.pe-stat-label {
-  font-size: 12px;
-  color: #999;
-  line-height: 1.5;
-}
-
-/* ===== CLIENTS ===== */
-.pe-clients {
-  padding: 80px 0;
-  border-top: 1px solid #eee;
-}
-
-.pe-clients h2 {
-  text-align: center;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.pe-clients .pe-section-sub {
-  text-align: center;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.pe-clients-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px 48px;
-  align-items: center;
-  justify-content: center;
-}
-
-.pe-client-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: #999;
-  letter-spacing: 0.5px;
-  transition: color 0.2s;
-}
-
-.pe-client-name:hover {
-  color: #1a1a1a;
-}
-
 /* ===== SECTOR EXPERIENCE ===== */
 .pe-sectors {
   padding: 80px 0;
@@ -570,6 +437,13 @@ h3 em {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
+}
+
+.pe-sector-icon {
+  width: 32px;
+  height: 32px;
+  color: #F04E36;
+  margin-bottom: 12px;
 }
 
 .pe-sector-group h4 {
@@ -760,29 +634,18 @@ h3 em {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .pe-problem-row {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .pe-problem-arrow {
-    transform: rotate(90deg);
-  }
-
-  .pe-about-grid,
-  .pe-diff-grid {
+  .pe-about-grid {
     grid-template-columns: 1fr;
   }
 
-  .pe-about-card-full {
-    grid-column: span 1;
+  .pe-process-header {
+    grid-template-columns: 1fr;
   }
 
   .pe-process-grid {
     grid-template-columns: 1fr;
   }
 
-  .pe-stats-grid,
   .pe-sectors-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -806,7 +669,6 @@ h3 em {
     grid-template-columns: 1fr;
   }
 
-  .pe-stats-grid,
   .pe-sectors-grid {
     grid-template-columns: 1fr;
   }
