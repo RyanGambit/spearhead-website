@@ -175,16 +175,18 @@ h3 {
 
 .wwd-intro-text p:last-child { margin-bottom: 0; }
 
-.wwd-placeholder {
+.wwd-intro-image img {
   width: 100%;
   height: 360px;
-  background: #e8e8e8;
+  object-fit: cover;
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 14px;
+}
+
+.wwd-value-image img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 /* ===== 3. STATS BAND ===== */
@@ -266,9 +268,6 @@ h3 {
 
 .wwd-value-content p:last-child { margin-bottom: 0; }
 
-.wwd-value-image .wwd-placeholder {
-  height: 320px;
-}
 
 /* ===== 5. PROCESS ===== */
 .wwd-process {
