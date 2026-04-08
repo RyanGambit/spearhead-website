@@ -280,6 +280,8 @@ h2 em {
   transition: border-color 0.2s;
 }
 
+.tx-card[data-href] { cursor: pointer; }
+
 .tx-card:hover {
   border-color: #aaa;
 }

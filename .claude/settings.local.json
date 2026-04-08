@@ -9,7 +9,10 @@
       "Bash(git pull:*)",
       "Bash(ls /c/Users/Ryan/Downloads/*istock* /c/Users/Ryan/Downloads/*meeting* /c/Users/Ryan/Downloads/*office*)",
       "WebFetch(domain:www.spearheadcorpdev.com)",
-      "Bash(echo \"exit: $?\")"
+      "Bash(echo \"exit: $?\")",
+      "Bash(node /c/Users/Ryan/Desktop/spearhead-site/generate-transactions.js)",
+      "Bash(node -e \"const d = require\\(''./transaction-data.json''\\); d.forEach\\(\\(t,i\\) => { if \\(!t.title\\) console.log\\(i, t.slug, ''MISSING TITLE''\\); }\\)\")",
+      "Bash(node -e \"const d = JSON.parse\\(require\\(''fs''\\).readFileSync\\(''C:/Users/Ryan/Desktop/spearhead-site/transaction-data.json'',''utf-8''\\)\\); d.forEach\\(\\(t,i\\) => { if \\(!t.title\\) console.log\\(i, t.slug, ''MISSING TITLE''\\); }\\)\")"
     ]
   }
 }
