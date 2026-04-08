@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions — Spearhead Corporate Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="transactions.css">
+</head>
+<body>
+
+  <!-- NAVIGATION (DARK) -->
+  <nav class="navbar navbar-dark">
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-left">
+      <a href="what-we-do.html" class="nav-link">WHAT WE DO</a>
+      <a href="about.html" class="nav-link">ABOUT US</a>
+      <a href="pe-firms.html" class="nav-link">FOR PE FIRMS</a>
+    </div>
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="https://fpcassets.nyc3.digitaloceanspaces.com/static/logos/Spearhead-Logo-White.png" alt="Spearhead Logo">
+      </a>
+    </div>
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-sm btn-outline-light">CONTACT US <span class="arrow">&rarr;</span></a>
+    </div>
+    <div class="nav-mobile-menu">
+      <a href="what-we-do.html">What We Do</a>
+      <a href="about.html">About Us</a>
+      <a href="pe-firms.html">For PE Firms</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- DARK HERO -->
+  <section class="tx-hero">
+    <div class="container">
+      <div class="tx-hero-inner">
+        <div class="tx-hero-label">Transactions</div>
+        <h1>More closings, <em>with more certainty</em></h1>
+        <p class="tx-hero-subtitle">Since launching in March 2020, we have sourced, advanced, and advised clients on the following publicly disclosed transactions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <section class="tx-filter-bar">
+    <div class="container">
+      <select id="sectorFilter" onchange="filterTransactions()">
+        <option value="all">All Sectors</option>
+        <option value="Business Services">Business Services</option>
+        <option value="Real Estate & Construction">Real Estate & Construction</option>
+        <option value="Software & Tech">Software & Tech</option>
+        <option value="Manufacturing">Manufacturing</option>
+        <option value="Financial Services">Financial Services</option>
+        <option value="Consumer & Retail">Consumer & Retail</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- TRANSACTION GRID -->
+  <section class="tx-grid-section">
+    <div class="container">
+      <div class="tx-grid">
+
+        <!-- 1 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Mar 2025</div>
+          <div class="tx-title">Spearhead advised The Chill Brothers, a Forum Asset Management company, on its acquisition of Alternative Aire</div>
+          <div class="tx-logos">
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/transactions/TheChillBro/TheChillBro_Logo_NoBg.png" alt="The Chill Brothers">
+            <div class="tx-logo-divider"></div>
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/transactions/TheChillBro/Alternative-Aire-Logo__1000W_500H.png" alt="Alternative Aire">
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="tx-card" data-sector="Manufacturing">
+          <div class="tx-date">Mar 2025</div>
+          <div class="tx-title">Spearhead advised AWT Labels & Packaging on its acquisition of American Label Technologies Inc.</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">AWT Labels</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">American Label</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Manufacturing</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="tx-card" data-sector="Real Estate & Construction">
+          <div class="tx-date">Feb 2025</div>
+          <div class="tx-title">Spearhead advised Signal Hill Equity on its acquisition of ZMM</div>
+          <div class="tx-logos">
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/transactions/SignalHill/SignalHill_Logo_1000W_500H.png" alt="Signal Hill Equity">
+            <div class="tx-logo-divider"></div>
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/transactions/SignalHill/ZMM_Logo_1000W_500H.png" alt="ZMM">
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Real Estate & Construction</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/CA.svg" alt="CA">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Jan 2025</div>
+          <div class="tx-title">Spearhead advised Collective Waste Solutions on its acquisition of Fin-Wall Site Services</div>
+          <div class="tx-logos">
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/transactions/Collective/Collective_Logo_1000W_500H.png" alt="Collective Waste Solutions">
+            <div class="tx-logo-divider"></div>
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/transactions/Collective/FinwallSiteServices_Logo__1000W_500H-01.png" alt="Fin-Wall Site Services">
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/CA.svg" alt="CA">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Nov 2024</div>
+          <div class="tx-title">Spearhead acted as a special advisor to Concentric Equity Partners on its acquisition of Collective Waste Solution and merger with Municipal Waste Management (MWM)</div>
+          <div class="tx-logos">
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/transactions/Concentric/ConcentricLogo_1000W_500H_2025-03-04-235849_icoe.png" alt="Concentric Equity Partners">
+            <div class="tx-logo-divider"></div>
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/transactions/Concentric/Collective_MWM.png" alt="Collective MWM">
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/CA.svg" alt="CA">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Sep 2024</div>
+          <div class="tx-title">Spearhead acted as a special advisor to a Taubman Capital portfolio company (confidential)</div>
+          <div class="tx-logos">
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/transactions/Taubman/TaubmanCapital_1000W_500H_2025-03-13-172947_kquy.png" alt="Taubman Capital">
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Sep 2024</div>
+          <div class="tx-title">Spearhead acted as a special advisor to a Taubman Capital portfolio company (confidential)</div>
+          <div class="tx-logos">
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/transactions/Taubman/TaubmanCapital_1000W_500H_2025-03-13-172947_kquy.png" alt="Taubman Capital">
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="tx-card" data-sector="Software & Tech">
+          <div class="tx-date">Jul 2024</div>
+          <div class="tx-title">Spearhead advised HostPapa on its acquisition of Brandpa</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">HostPapa</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">Brandpa</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Software & Tech</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/CA.svg" alt="CA">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="tx-card" data-sector="Consumer & Retail">
+          <div class="tx-date">Jul 2024</div>
+          <div class="tx-title">Spearhead advised Nutra Holdings on its minority investment in Br&uuml;st</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">Nutra Holdings</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">Br&uuml;st</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Consumer & Retail</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/CA.svg" alt="CA">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Jun 2024</div>
+          <div class="tx-title">Spearhead advised The Chill Brothers, a Forum Asset Management company, on its acquisition of New Balance A/C Inc.</div>
+          <div class="tx-logos">
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/transactions/TheChillBro/TheChillBro_Logo_NoBg.png" alt="The Chill Brothers">
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Mar 2024</div>
+          <div class="tx-title">Spearhead advised Creative Outdoor Advertising (COA), a street furniture advertising company, on its acquisition of Focus Media Group</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">COA</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">Focus Media</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/CA.svg" alt="CA">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="tx-card" data-sector="Financial Services">
+          <div class="tx-date">Feb 2024</div>
+          <div class="tx-title">Spearhead advised Signers National, a technology-enabled insurance brokerage, on its acquisition of Affiliated Insurance Agents, LLC</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">Signers National</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">Affiliated Insurance</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Financial Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Dec 2023</div>
+          <div class="tx-title">Spearhead advised American Pool, a FirstService company, on its acquisition of All Pool Service & Supply</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">FirstService</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">All Pool</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Dec 2023</div>
+          <div class="tx-title">Spearhead advised First Onsite, a FirstService company, on its acquisition of DryPatrol LLC</div>
+          <div class="tx-logos">
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/acquisitions/first-service/FS_FirstOnsite_Side.png" alt="First Onsite">
+            <div class="tx-logo-divider"></div>
+            <img class="tx-logo" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/transactions/FirstOnsite/drypatrol.png" alt="DryPatrol">
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Oct 2023</div>
+          <div class="tx-title">Spearhead advised Century Fire Protection, a FirstService company, on its acquisition of Chesapeake Sprinkler Company</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">Century Fire</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">CSC</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16 -->
+        <div class="tx-card" data-sector="Software & Tech">
+          <div class="tx-date">Jun 2023</div>
+          <div class="tx-title">Spearhead advised BV Investment Partners on its acquisition of Tomorrow Agency</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">BV Investment</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">Tomorrow Agency</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Software & Tech</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 17 -->
+        <div class="tx-card" data-sector="Software & Tech">
+          <div class="tx-date">Jun 2023</div>
+          <div class="tx-title">Spearhead advised HostPapa on its acquisition of Cloud 9</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">HostPapa</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">Cloud 9</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Software & Tech</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/CA.svg" alt="CA">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">May 2023</div>
+          <div class="tx-title">Spearhead advised Urban Life Solutions, a Signal Hill company, on its acquisition of Forest Ridge Landscaping</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">Urban Life Solutions</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">Forest Ridge</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/CA.svg" alt="CA">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 19 -->
+        <div class="tx-card" data-sector="Software & Tech">
+          <div class="tx-date">Feb 2023</div>
+          <div class="tx-title">Spearhead advised BV Investment Partners on its acquisition of Half Felix</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">BV Investment</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">Half Felix</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Software & Tech</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 20 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Oct 2022</div>
+          <div class="tx-title">Spearhead advised FirstService on its acquisition of Watermark</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">FirstService</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">Watermark</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 21 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Dec 2021</div>
+          <div class="tx-title">Spearhead advised First Onsite, a FirstService company, on its acquisition of Emergency Fire & Water Restoration</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">FirstOnSite</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">Emergency Restoration</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 22 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Dec 2021</div>
+          <div class="tx-title">Spearhead advised FirstService on its acquisition of Kauai Restoration</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">FirstService</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">Kauai Restoration</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 23 -->
+        <div class="tx-card" data-sector="Business Services">
+          <div class="tx-date">Dec 2021</div>
+          <div class="tx-title">Spearhead advised Paul Davis, a FirstService company, on its acquisition of Stat Services Inc.</div>
+          <div class="tx-logos">
+            <div class="tx-logo-text">Paul Davis</div>
+            <div class="tx-logo-divider"></div>
+            <div class="tx-logo-text">Stat Services</div>
+          </div>
+          <div class="tx-footer">
+            <div class="tx-meta">
+              <div class="tx-sector">Sector<span>Business Services</span></div>
+              <div class="tx-flags">
+                <img class="tx-flag" src="https://fpcassets.nyc3.digitaloceanspaces.com/static/icons/flags/US.svg" alt="US">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="tx-testimonial">
+    <div class="container">
+      <h2>What people are <em>saying</em></h2>
+      <div class="tx-testimonial-content">
+        <blockquote class="tx-quote">
+          &ldquo;We could not have closed Cloud 9 without Spearhead, but they have meant a lot more to us than that: they are a strategic advisor helping us refine our M&A efforts, for over two years now.&rdquo;
+        </blockquote>
+        <div class="tx-quote-author">
+          <img class="tx-quote-avatar" src="https://fpcassets.nyc3.digitaloceanspaces.com/assets/_squareHeadshot/Jamie-Opalchuk.png" alt="Jamie Opalchuk">
+          <div class="tx-quote-info">
+            <div class="tx-quote-name">Jamie Opalchuk</div>
+            <div class="tx-quote-role">Founder and CEO, HostPapa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="tx-cta">
+    <div class="container">
+      <h2>Every successful relationship starts with a <em>conversation</em></h2>
+      <a href="contact.html" class="btn btn-lg btn-fill">LET'S TALK <span class="arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <p class="footer-label">QUICK LINKS</p>
+          <a href="index.html">Home</a>
+          <a href="index.html#what-we-do">What We Do</a>
+          <a href="index.html#team">About Us</a>
+          <a href="pe-firms.html">For PE Firms</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-label">CONTACT</p>
+          <a href="mailto:info@spearheadcorpdev.com">info@spearheadcorpdev.com</a>
+          <a href="tel:+14378000219">(437) 800-0219</a>
+        </div>
+        <div class="footer-col footer-brand">
+          <img src="https://fpcassets.nyc3.digitaloceanspaces.com/static/logos/Spearhead-Logo-White.png" alt="Spearhead Logo" class="footer-logo">
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; Spearhead Holdings. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function filterTransactions() {
+      var filter = document.getElementById('sectorFilter').value;
+      var cards = document.querySelectorAll('.tx-card');
+      cards.forEach(function(card) {
+        if (filter === 'all' || card.getAttribute('data-sector') === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+  <script src="mobile-nav.js"></script>
+</body>
+</html>
