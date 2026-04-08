@@ -444,57 +444,36 @@ h3 {
   .nav-right { right: 60px; }
 }
 
+/* ===== MOBILE NAV ===== */
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 200; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; transition: transform 0.3s, opacity 0.3s; }
+.nav-toggle-open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-toggle-open span:nth-child(2) { opacity: 0; }
+.nav-toggle-open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.nav-mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #1c1c1c; flex-direction: column; padding: 24px; gap: 20px; border-top: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.nav-mobile-menu a { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 600; color: #fff; }
+.nav-mobile-menu a:hover { color: #F04E36; }
+.nav-mobile-active { color: #F04E36 !important; }
+.nav-mobile-open { display: flex; }
+
 @media (max-width: 1024px) {
-  .navbar {
-    flex-wrap: wrap;
-    gap: 16px;
-    padding: 20px 24px;
-    height: auto;
-    position: relative;
-  }
-
-  .nav-left, .nav-right, .nav-logo {
-    position: static;
-    transform: none;
-  }
-
-  .about-hero { padding-top: 80px; }
-
-  .about-story-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .team-grid,
-  .about-team-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .advisory-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .careers-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+  .nav-toggle { display: block; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); }
+  .nav-left, .nav-right { display: none; }
+  .nav-logo { position: static; transform: none; }
+  .navbar { height: 64px; padding: 0 24px; justify-content: center; flex-wrap: nowrap; }
+  .about-hero { padding-top: 120px; }
+  .about-story-grid { grid-template-columns: 1fr; gap: 40px; }
+  .team-grid, .about-team-grid { grid-template-columns: repeat(3, 1fr); }
+  .advisory-grid { grid-template-columns: 1fr; }
+  .careers-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 768px) {
-  .container { padding: 0 24px; }
-
-  h2 { font-size: 32px; }
-
-  .about-hero h1 { font-size: 36px; }
-
-  .team-grid,
-  .about-team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .careers-values {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-grid { grid-template-columns: 1fr; }
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  h2 { font-size: 28px; }
+  .about-hero h1 { font-size: 32px; }
+  .about-hero { padding-top: 100px; }
+  .team-grid, .about-team-grid { grid-template-columns: repeat(2, 1fr); }
+  .careers-values { grid-template-columns: 1fr; }
 }

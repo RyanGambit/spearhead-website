@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "WebSearch",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(ls /c/Users/Ryan/Downloads/*istock* /c/Users/Ryan/Downloads/*meeting* /c/Users/Ryan/Downloads/*office*)",
+      "WebFetch(domain:www.spearheadcorpdev.com)",
+      "Bash(echo \"exit: $?\")"
+    ]
+  }
+}
