@@ -14,7 +14,31 @@
       "Bash(node -e \"const d = require\\(''./transaction-data.json''\\); d.forEach\\(\\(t,i\\) => { if \\(!t.title\\) console.log\\(i, t.slug, ''MISSING TITLE''\\); }\\)\")",
       "Bash(node -e \"const d = JSON.parse\\(require\\(''fs''\\).readFileSync\\(''C:/Users/Ryan/Desktop/spearhead-site/transaction-data.json'',''utf-8''\\)\\); d.forEach\\(\\(t,i\\) => { if \\(!t.title\\) console.log\\(i, t.slug, ''MISSING TITLE''\\); }\\)\")",
       "Bash(curl -sL -o /c/Users/Ryan/Desktop/spearhead-site/favicon.ico https://www.spearheadcorpdev.com/favicon.ico)",
-      "Bash(curl -sI https://spearhead-website.vercel.app/favicon.ico)"
+      "Bash(curl -sI https://spearhead-website.vercel.app/favicon.ico)",
+      "Bash(ls -lhS /c/Users/Ryan/Desktop/spearhead-site/*.css)",
+      "Bash(ls -lhS /c/Users/Ryan/Desktop/spearhead-site/*.js)",
+      "Bash(ls -lhS /c/Users/Ryan/Desktop/spearhead-site/*.html)",
+      "Bash(ls -lh /c/Users/Ryan/Desktop/spearhead-site/images/*.mp4)",
+      "Bash(npx --yes sharp-cli -i images/wwd-value-01.jpg -o images/wwd-value-01-opt.jpg -- resize 800 --jpeg '{\"quality\":75}')",
+      "Bash(node -e ':*)",
+      "Bash(npm install:*)",
+      "Bash(grep -l \"fonts.googleapis.com\" *.html transaction/*.html)",
+      "Bash(sed -i 's/<img src=\"images\\\\/partner/<img loading=\"lazy\" src=\"images\\\\/partner/g' index.html)",
+      "Bash(sed -i 's/<img src=\"images\\\\/spotlight/<img loading=\"lazy\" src=\"images\\\\/spotlight/g' index.html)",
+      "Bash(sed -i 's/<img src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/assets\\\\/transactions\\\\//<img loading=\"lazy\" src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/assets\\\\/transactions\\\\//g' index.html)",
+      "Bash(sed -i 's/<img src=\"images\\\\/Cam Vernest.jpg\"/<img loading=\"lazy\" src=\"images\\\\/Cam Vernest.jpg\"/g' index.html)",
+      "Bash(sed -i 's/<img src=\"images\\\\/Moritz Christ.jpg\"/<img loading=\"lazy\" src=\"images\\\\/Moritz Christ.jpg\"/g' index.html)",
+      "Bash(sed -i 's/<img src=\"images\\\\/about-story.jpg\"/<img loading=\"lazy\" src=\"images\\\\/about-story.jpg\"/g' about.html)",
+      "Bash(sed -i 's/<img src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/assets\\\\/_squareHeadshot\\\\//<img loading=\"lazy\" src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/assets\\\\/_squareHeadshot\\\\//g' about.html)",
+      "Bash(sed -i 's/<img src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/static\\\\/logos\\\\/Spearhead-Logo-White.png\" alt=\"Spearhead Logo\" class=\"footer-logo\"/<img loading=\"lazy\" src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/static\\\\/logos\\\\/Spearhead-Logo-White.png\" alt=\"Spearhead Logo\" class=\"footer-logo\"/g' about.html)",
+      "Bash(sed -i 's/<img src=\"images\\\\/process-team.jpg\"/<img loading=\"lazy\" src=\"images\\\\/process-team.jpg\"/g' pe-firms.html)",
+      "Bash(sed -i 's/<img src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/static\\\\/logos\\\\/Spearhead-Logo-White.png\" alt=\"Spearhead Logo\" class=\"footer-logo\"/<img loading=\"lazy\" src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/static\\\\/logos\\\\/Spearhead-Logo-White.png\" alt=\"Spearhead Logo\" class=\"footer-logo\"/g' pe-firms.html)",
+      "Bash(sed -i 's/<img class=\"tx-logo\"/<img loading=\"lazy\" class=\"tx-logo\"/g' transactions.html)",
+      "Bash(sed -i 's/<img class=\"tx-flag\"/<img loading=\"lazy\" class=\"tx-flag\"/g' transactions.html)",
+      "Bash(sed -i 's/<img class=\"tx-quote-avatar\"/<img loading=\"lazy\" class=\"tx-quote-avatar\"/g' transactions.html)",
+      "Bash(sed -i 's/<img src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/static\\\\/logos\\\\/Spearhead-Logo-White.png\" alt=\"Spearhead Logo\" class=\"footer-logo\"/<img loading=\"lazy\" src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/static\\\\/logos\\\\/Spearhead-Logo-White.png\" alt=\"Spearhead Logo\" class=\"footer-logo\"/g' transactions.html)",
+      "Bash(sed -i 's/<img src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/static\\\\/logos\\\\/Spearhead-Logo-White.png\" alt=\"Spearhead Logo\" class=\"footer-logo\"/<img loading=\"lazy\" src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/static\\\\/logos\\\\/Spearhead-Logo-White.png\" alt=\"Spearhead Logo\" class=\"footer-logo\"/g' 404.html)",
+      "Bash(sed -i 's/<img src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/static\\\\/logos\\\\/Spearhead-Logo-White.png\" alt=\"Spearhead Logo\" class=\"footer-logo\"/<img loading=\"lazy\" src=\"https:\\\\/\\\\/fpcassets.nyc3.digitaloceanspaces.com\\\\/static\\\\/logos\\\\/Spearhead-Logo-White.png\" alt=\"Spearhead Logo\" class=\"footer-logo\"/g' thank-you.html)"
     ]
   }
 }
