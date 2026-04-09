@@ -152,7 +152,8 @@ h3 {
   align-items: center;
   justify-content: center;
   height: 64px;
-  background: #1c1c1c;
+  background: #fff;
+  border-bottom: 1px solid #eee;
 }
 
 .nav-left {
@@ -166,9 +167,9 @@ h3 {
 
 .nav-link {
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 11px;
-  color: #fff;
+  color: #000;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   transition: color 0.2s;
@@ -202,9 +203,9 @@ h3 {
 
 .nav-link-cta {
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 11px;
-  color: #fff;
+  color: #000;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   transition: color 0.2s;
@@ -955,7 +956,7 @@ h3 {
   display: block;
   width: 24px;
   height: 2px;
-  background: #fff;
+  background: #000;
   margin: 5px 0;
   transition: transform 0.3s, opacity 0.3s;
 }
@@ -970,19 +971,19 @@ h3 {
   top: 100%;
   left: 0;
   right: 0;
-  background: #1c1c1c;
+  background: #fff;
   flex-direction: column;
   padding: 24px;
   gap: 20px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  border-top: 1px solid #eee;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 
 .nav-mobile-menu a {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #fff;
+  color: #000;
 }
 
 .nav-mobile-menu a:hover { color: #F04E36; }
