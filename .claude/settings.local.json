@@ -13,7 +13,8 @@
       "Bash(node /c/Users/Ryan/Desktop/spearhead-site/generate-transactions.js)",
       "Bash(node -e \"const d = require\\(''./transaction-data.json''\\); d.forEach\\(\\(t,i\\) => { if \\(!t.title\\) console.log\\(i, t.slug, ''MISSING TITLE''\\); }\\)\")",
       "Bash(node -e \"const d = JSON.parse\\(require\\(''fs''\\).readFileSync\\(''C:/Users/Ryan/Desktop/spearhead-site/transaction-data.json'',''utf-8''\\)\\); d.forEach\\(\\(t,i\\) => { if \\(!t.title\\) console.log\\(i, t.slug, ''MISSING TITLE''\\); }\\)\")",
-      "Bash(curl -sL -o /c/Users/Ryan/Desktop/spearhead-site/favicon.ico https://www.spearheadcorpdev.com/favicon.ico)"
+      "Bash(curl -sL -o /c/Users/Ryan/Desktop/spearhead-site/favicon.ico https://www.spearheadcorpdev.com/favicon.ico)",
+      "Bash(curl -sI https://spearhead-website.vercel.app/favicon.ico)"
     ]
   }
 }
