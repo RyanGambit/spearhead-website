@@ -612,6 +612,36 @@ h3 em {
   width: auto;
 }
 
+.form-success {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.form-success-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #F04E36;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.form-success h3 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.form-success p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+}
+
 .footer-address {
   font-size: 13px;
   color: rgba(255,255,255,0.6);
