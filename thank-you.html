@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You — Spearhead Corporate Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 64px;
+      background: #1c1c1c;
+    }
+    .nav-logo {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .nav-logo img { height: 28px; width: auto; }
+    a { text-decoration: none; color: inherit; }
+
+    .thank-you {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+    }
+    .check-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #F04E36;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .check-icon svg { width: 28px; height: 28px; color: #fff; }
+    h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 42px;
+      font-weight: 400;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    h1 em { font-style: italic; color: #F04E36; }
+    .subtitle {
+      font-size: 16px;
+      color: #555;
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #F04E36;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #d9432e; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #1a1a1a;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: 4px;
+      border: 1.5px solid #ddd;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: #1a1a1a; }
+
+    .footer {
+      background: #1a1a1a;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .footer p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 32px; }
+      .actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="https://fpcassets.nyc3.digitaloceanspaces.com/static/logos/Spearhead-Logo-White.png" alt="Spearhead Logo">
+      </a>
+    </div>
+  </nav>
+
+  <main class="thank-you">
+    <div class="check-icon">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <h1>Thank you for <em>reaching out.</em></h1>
+    <p class="subtitle">We've received your message and will be in touch within 24 hours. In the meantime, feel free to explore more about what we do.</p>
+    <div class="actions">
+      <a href="index.html" class="btn-primary">Back to Home &rarr;</a>
+      <a href="transactions.html" class="btn-secondary">View Transactions</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; Spearhead Holdings. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
