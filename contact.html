@@ -55,26 +55,28 @@
           <p class="contact-subtitle">Whether you're exploring your options or just want to understand what a deal could look like, we're happy to talk. No commitment, no pressure.</p>
         </div>
         <div class="contact-right">
-          <form>
+          <form action="https://formspree.io/f/xojpzrbr" method="POST">
+            <input type="hidden" name="_subject" value="New contact from Spearhead website">
+            <input type="hidden" name="_source" value="contact-page">
             <div class="contact-form-group">
               <label>Name</label>
-              <input type="text" placeholder="Your full name">
+              <input type="text" name="name" placeholder="Your full name" required>
             </div>
             <div class="contact-form-group">
               <label>Email</label>
-              <input type="email" placeholder="yourcompany.com">
+              <input type="email" name="email" placeholder="yourcompany.com" required>
             </div>
             <div class="contact-form-group">
               <label>Phone</label>
-              <input type="tel" placeholder="(555) 123-4567">
+              <input type="tel" name="phone" placeholder="(555) 123-4567">
             </div>
             <div class="contact-form-group">
               <label>Company</label>
-              <input type="text" placeholder="Your company name">
+              <input type="text" name="company" placeholder="Your company name">
             </div>
             <div class="contact-form-group">
               <label>Message</label>
-              <textarea placeholder="Tell us a bit about your situation."></textarea>
+              <textarea name="message" placeholder="Tell us a bit about your situation."></textarea>
             </div>
             <button type="submit" class="btn-submit">Submit</button>
           </form>

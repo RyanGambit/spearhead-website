@@ -234,14 +234,16 @@
         <div class="pe-mandate-form">
           <div class="pe-mandate-form-title">Request access to our live mandates</div>
           <div class="pe-mandate-form-desc">We'll follow up within 24 hours.</div>
-          <form>
+          <form action="https://formspree.io/f/xojpzrbr" method="POST">
+            <input type="hidden" name="_subject" value="Live mandates request from PE Firms page">
+            <input type="hidden" name="_source" value="pe-firms-mandates">
             <div class="pe-mandate-input-row">
-              <input type="text" class="pe-mandate-input" placeholder="First name">
-              <input type="text" class="pe-mandate-input" placeholder="Last name">
+              <input type="text" name="first_name" class="pe-mandate-input" placeholder="First name" required>
+              <input type="text" name="last_name" class="pe-mandate-input" placeholder="Last name" required>
             </div>
             <div class="pe-mandate-input-row">
-              <input type="email" class="pe-mandate-input" placeholder="Email">
-              <input type="text" class="pe-mandate-input" placeholder="Company">
+              <input type="email" name="email" class="pe-mandate-input" placeholder="Email" required>
+              <input type="text" name="company" class="pe-mandate-input" placeholder="Company">
             </div>
             <button type="submit" class="btn btn-sm btn-fill">SUBMIT <span class="arrow">&rarr;</span></button>
           </form>
