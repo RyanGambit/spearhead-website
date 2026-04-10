@@ -10,8 +10,8 @@
   var titleEl = overlay.querySelector('.bio-modal-title');
   var textEl = overlay.querySelector('.bio-modal-text');
 
-  // Open modal on team card click
-  document.querySelectorAll('.about-team-card[data-bio]').forEach(function(card) {
+  // Open modal on team card or advisor card click
+  document.querySelectorAll('[data-bio]').forEach(function(card) {
     card.addEventListener('click', function() {
       var name = card.getAttribute('data-name');
       var title = card.getAttribute('data-title');

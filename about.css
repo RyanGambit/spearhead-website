@@ -459,12 +459,14 @@ h3 {
 }
 
 /* ===== TEAM BIO MODAL ===== */
-.about-team-card {
+.about-team-card[data-bio],
+[data-bio] {
   cursor: pointer;
   transition: opacity 0.2s;
 }
 
-.about-team-card:hover {
+.about-team-card[data-bio]:hover,
+[data-bio]:hover {
   opacity: 0.85;
 }
 
