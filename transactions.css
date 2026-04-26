@@ -138,9 +138,9 @@ h2 em {
 
 .nav-left {
   display: flex;
-  gap: 24px;
+  gap: 32px;
   position: absolute;
-  left: 155px;
+  left: 160px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -171,7 +171,7 @@ h2 em {
 }
 
 .nav-logo img {
-  height: 32px;
+  height: 28px;
   width: auto;
   object-fit: contain;
 }
@@ -180,9 +180,14 @@ h2 em {
   display: flex;
   gap: 16px;
   position: absolute;
-  right: 120px;
+  right: 160px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+@media (max-width: 1440px) {
+  .nav-left { left: 60px; }
+  .nav-right { right: 60px; }
 }
 
 /* ===== DARK HERO ===== */

@@ -155,7 +155,7 @@ h3 em {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: 64px;
 }
 
 .navbar-dark {
@@ -164,9 +164,9 @@ h3 em {
 
 .nav-left {
   display: flex;
-  gap: 24px;
+  gap: 32px;
   position: absolute;
-  left: 155px;
+  left: 160px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -197,7 +197,7 @@ h3 em {
 }
 
 .nav-logo img {
-  height: 32px;
+  height: 28px;
   width: auto;
   object-fit: contain;
 }
@@ -206,16 +206,21 @@ h3 em {
   display: flex;
   gap: 16px;
   position: absolute;
-  right: 120px;
+  right: 160px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+@media (max-width: 1440px) {
+  .nav-left { left: 60px; }
+  .nav-right { right: 60px; }
 }
 
 /* ===== DARK HERO ===== */
 .pe-hero {
   background: #1c1c1c;
   padding: 0;
-  padding-top: 100px;
+  padding-top: 64px;
 }
 
 .pe-hero-inner {
