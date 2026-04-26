@@ -580,6 +580,12 @@ h3 {
 .nav-mobile-active { color: #F04E36 !important; }
 .nav-mobile-open { display: flex; }
 
+/* Switch nav to hamburger earlier so longer link labels (e.g. Deal Spotlight) do not overlap the centered logo */
+@media (max-width: 1200px) and (min-width: 1025px) {
+  .nav-toggle { display: block; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); }
+  .nav-left, .nav-right { display: none; }
+}
+
 @media (max-width: 1024px) {
   .nav-toggle { display: block; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); }
   .nav-left, .nav-right { display: none; }
